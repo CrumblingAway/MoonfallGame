@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm25u7ggw4421"]
+
+[ext_resource type="Script" path="res://scripts/board_movement.gd" id="1_v6fco"]
+
+[node name="BoardMovement" type="Node2D"]
+script = ExtResource("1_v6fco")
