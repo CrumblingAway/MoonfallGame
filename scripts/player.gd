@@ -19,3 +19,8 @@ func _process(delta: float) -> void:
 		velocity += Vector2.RIGHT
 	
 	board_movement.move(self, velocity * _speed)
+
+#################### Public mehods. ####################
+
+func increase_speed(increase_delta: float) -> void:
+	_speed += increase_delta

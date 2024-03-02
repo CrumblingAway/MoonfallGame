@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://hsgw807lah12"]
+
+[ext_resource type="Script" path="res://scripts/speed_buff.gd" id="1_aeavk"]
+[ext_resource type="Texture2D" uid="uid://colwdpik0fe6o" path="res://resources/sprites/speed_buff.png" id="2_hafbw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lo4iy"]
+radius = 4.12311
+
+[node name="speed_buff" type="Node2D"]
+script = ExtResource("1_aeavk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_lo4iy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hafbw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
