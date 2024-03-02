@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://u36scqw6gysf" path="res://scenes/objects/board.tscn" id="1_0astc"]
 [ext_resource type="PackedScene" uid="uid://c2ecjs5nrkkbv" path="res://scenes/objects/player.tscn" id="1_6rh2j"]
-[ext_resource type="PackedScene" uid="uid://hsgw807lah12" path="res://scenes/objects/speed_buff.tscn" id="2_jcrag"]
+[ext_resource type="PackedScene" uid="uid://87o8wms64bu8" path="res://scenes/objects/enemy.tscn" id="2_l2728"]
 
 [node name="test_level" type="Node2D"]
 
@@ -11,16 +11,7 @@ zoom = Vector2(3, 3)
 
 [node name="board" parent="." instance=ExtResource("1_0astc")]
 
-[node name="speed_buff" parent="." instance=ExtResource("2_jcrag")]
-position = Vector2(-41, -40)
-
-[node name="speed_buff2" parent="." instance=ExtResource("2_jcrag")]
-position = Vector2(-35, 40)
-
-[node name="speed_buff3" parent="." instance=ExtResource("2_jcrag")]
-position = Vector2(37, 23)
-
-[node name="speed_buff4" parent="." instance=ExtResource("2_jcrag")]
-position = Vector2(41, -41)
+[node name="enemy" parent="." instance=ExtResource("2_l2728")]
+position = Vector2(31, -33)
 
 [node name="player" parent="." instance=ExtResource("1_6rh2j")]
