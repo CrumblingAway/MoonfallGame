@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://87o8wms64bu8"]
+[gd_scene load_steps=11 format=3 uid="uid://87o8wms64bu8"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_6s80t"]
 [ext_resource type="Texture2D" uid="uid://cdvtlpewvrjrq" path="res://resources/sprites/enemy.png" id="1_84j0e"]
+[ext_resource type="PackedScene" uid="uid://jov6kss0l7t" path="res://scenes/components/DialogSender.tscn" id="3_fqkxf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v1b0p"]
 radius = 7.0
@@ -42,6 +43,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_th46b"]
+radius = 51.0882
+
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_6s80t")
 
@@ -50,3 +54,10 @@ shape = SubResource("CircleShape2D_v1b0p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xujqm")
+
+[node name="DialogSender" parent="." instance=ExtResource("3_fqkxf")]
+
+[node name="CollisionShape2D" parent="DialogSender/Area2D" index="0"]
+shape = SubResource("CircleShape2D_th46b")
+
+[editable path="DialogSender"]

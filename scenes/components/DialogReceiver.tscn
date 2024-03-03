@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://68qaj8geojvt"]
+
+[ext_resource type="Script" path="res://scripts/dialog_receiver.gd" id="1_72wiq"]
+
+[node name="DialogReceiver" type="Node2D"]
+script = ExtResource("1_72wiq")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://jov6kss0l7t"]
+
+[ext_resource type="Script" path="res://scripts/dialog_sender.gd" id="1_dmeic"]
+
+[node name="DialogSender" type="Node2D"]
+script = ExtResource("1_dmeic")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

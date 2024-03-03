@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cnssgjaum4vmg" path="res://scenes/objects/gate.tscn" id="2_gqwwk"]
 [ext_resource type="PackedScene" uid="uid://87o8wms64bu8" path="res://scenes/objects/enemy.tscn" id="2_l2728"]
 
-[node name="test_level" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -13,13 +13,19 @@ zoom = Vector2(3, 3)
 [node name="board" parent="." instance=ExtResource("1_0astc")]
 
 [node name="enemy" parent="." instance=ExtResource("2_l2728")]
-position = Vector2(24, -32)
+position = Vector2(-32, 0)
 
 [node name="enemy2" parent="." instance=ExtResource("2_l2728")]
-position = Vector2(-24, -32)
+position = Vector2(32, 0)
+
+[node name="enemy3" parent="." instance=ExtResource("2_l2728")]
+position = Vector2(0, 56)
 
 [node name="player" parent="." instance=ExtResource("1_6rh2j")]
 
 [node name="gate" parent="." instance=ExtResource("2_gqwwk")]
 y_sort_enabled = true
 position = Vector2(0, -40)
+
+[editable path="enemy"]
+[editable path="enemy/DialogSender"]

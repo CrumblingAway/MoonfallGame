@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 @export var board_movement : BoardMovement
+@export var dialog_receiver : DialogReceiver
 
 @export var _speed : float = 50.0
 
@@ -8,6 +9,9 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("action"):
+		dialog_receiver.print_dialog_text()
+	
 	var velocity : Vector2 = Vector2.ZERO
 	if Input.is_action_pressed("move_up"):
 		velocity += Vector2.UP
