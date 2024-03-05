@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl1p08skh3nx"]
+[gd_scene load_steps=5 format=3 uid="uid://dl1p08skh3nx"]
 
 [ext_resource type="Texture2D" uid="uid://dkpnw32vdggco" path="res://resources/sprites/tree.png" id="1_g2084"]
+[ext_resource type="PackedScene" uid="uid://0uefx4gxdb37" path="res://scenes/components/MinigameSender.tscn" id="2_jfn3m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5imi5"]
 radius = 2.0
 height = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2r7jb"]
+radius = 14.0
 
 [node name="tree" type="StaticBody2D"]
 
@@ -15,3 +19,10 @@ texture = ExtResource("1_g2084")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5imi5")
+
+[node name="MinigameSender" parent="." instance=ExtResource("2_jfn3m")]
+
+[node name="CollisionShape2D" parent="MinigameSender/Area2D" index="0"]
+shape = SubResource("CircleShape2D_2r7jb")
+
+[editable path="MinigameSender"]

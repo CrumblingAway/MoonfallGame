@@ -44,7 +44,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_th46b"]
-radius = 51.0882
+radius = 16.0
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_6s80t")

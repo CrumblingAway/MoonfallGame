@@ -15,6 +15,9 @@ func register_dialog_sender(dialog_sender: DialogSender) -> void:
 func unregister_dialog_sender(dialog_sender: DialogSender) -> void:
 	_dialog_senders_to_distance.erase(dialog_sender)
 
+func has_registered_dialog() -> bool:
+	return _dialog_senders_to_distance.size() > 0
+
 func print_dialog_text() -> void:
 	var closest_dialog_sender : DialogSender = null
 	for dialog_sender in _dialog_senders_to_distance:

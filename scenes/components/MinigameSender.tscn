@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://0uefx4gxdb37"]
+
+[ext_resource type="Script" path="res://scripts/minigame_sender.gd" id="1_gnhs2"]
+
+[node name="MinigameSender" type="Node2D"]
+script = ExtResource("1_gnhs2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
