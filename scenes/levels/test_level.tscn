@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://u36scqw6gysf" path="res://scenes/objects/board.tscn" id="1_0astc"]
 [ext_resource type="PackedScene" uid="uid://c2ecjs5nrkkbv" path="res://scenes/objects/player.tscn" id="1_6rh2j"]
 [ext_resource type="PackedScene" uid="uid://cnssgjaum4vmg" path="res://scenes/objects/gate.tscn" id="2_gqwwk"]
-[ext_resource type="PackedScene" uid="uid://87o8wms64bu8" path="res://scenes/objects/enemy.tscn" id="2_l2728"]
+[ext_resource type="PackedScene" uid="uid://cmcx768nwm78m" path="res://scenes/objects/gate_controler.tscn" id="3_yc4sr"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -12,20 +12,12 @@ zoom = Vector2(3, 3)
 
 [node name="board" parent="." instance=ExtResource("1_0astc")]
 
-[node name="enemy" parent="." instance=ExtResource("2_l2728")]
-position = Vector2(-32, 0)
-
-[node name="enemy2" parent="." instance=ExtResource("2_l2728")]
-position = Vector2(32, 0)
-
-[node name="enemy3" parent="." instance=ExtResource("2_l2728")]
-position = Vector2(0, 56)
-
 [node name="player" parent="." instance=ExtResource("1_6rh2j")]
+
+[node name="gate_controler" parent="." node_paths=PackedStringArray("_gate") instance=ExtResource("3_yc4sr")]
+position = Vector2(-24, -32)
+_gate = NodePath("../gate")
 
 [node name="gate" parent="." instance=ExtResource("2_gqwwk")]
 y_sort_enabled = true
 position = Vector2(0, -40)
-
-[editable path="enemy"]
-[editable path="enemy/DialogSender"]
