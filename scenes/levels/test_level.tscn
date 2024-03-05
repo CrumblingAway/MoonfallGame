@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyo4pkoh73eub"]
+[gd_scene load_steps=6 format=3 uid="uid://dyo4pkoh73eub"]
 
 [ext_resource type="PackedScene" uid="uid://u36scqw6gysf" path="res://scenes/objects/board.tscn" id="1_0astc"]
 [ext_resource type="PackedScene" uid="uid://c2ecjs5nrkkbv" path="res://scenes/objects/player.tscn" id="1_6rh2j"]
 [ext_resource type="PackedScene" uid="uid://cnssgjaum4vmg" path="res://scenes/objects/gate.tscn" id="2_gqwwk"]
+[ext_resource type="PackedScene" uid="uid://dl1p08skh3nx" path="res://scenes/objects/tree.tscn" id="3_ya4ro"]
 [ext_resource type="PackedScene" uid="uid://cmcx768nwm78m" path="res://scenes/objects/gate_controler.tscn" id="3_yc4sr"]
 
 [node name="Node2D" type="Node2D"]
@@ -12,12 +13,17 @@ zoom = Vector2(3, 3)
 
 [node name="board" parent="." instance=ExtResource("1_0astc")]
 
-[node name="player" parent="." instance=ExtResource("1_6rh2j")]
+[node name="Temp" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="gate_controler" parent="." node_paths=PackedStringArray("_gate") instance=ExtResource("3_yc4sr")]
+[node name="tree" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(32, 0)
+
+[node name="gate_controler" parent="Temp" node_paths=PackedStringArray("_gate") instance=ExtResource("3_yc4sr")]
 position = Vector2(-24, -32)
 _gate = NodePath("../gate")
 
-[node name="gate" parent="." instance=ExtResource("2_gqwwk")]
-y_sort_enabled = true
+[node name="gate" parent="Temp" instance=ExtResource("2_gqwwk")]
 position = Vector2(0, -40)
+
+[node name="player" parent="Temp" instance=ExtResource("1_6rh2j")]

@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2ecjs5nrkkbv"]
+[gd_scene load_steps=5 format=3 uid="uid://c2ecjs5nrkkbv"]
 
 [ext_resource type="Texture2D" uid="uid://k0lvqitsd6vj" path="res://resources/sprites/player.png" id="1_507aj"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_h8wqq"]
 [ext_resource type="PackedScene" uid="uid://dm25u7ggw4421" path="res://scenes/components/BoardMovement.tscn" id="2_bg3fx"]
 [ext_resource type="PackedScene" uid="uid://68qaj8geojvt" path="res://scenes/components/DialogReceiver.tscn" id="4_rng4q"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_cb0jn"]
-radius = 7.0
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("board_movement", "dialog_receiver")]
 script = ExtResource("1_h8wqq")
@@ -14,11 +11,15 @@ board_movement = NodePath("BoardMovement")
 dialog_receiver = NodePath("DialogReceiver")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
 texture = ExtResource("1_507aj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_cb0jn")
-
 [node name="BoardMovement" parent="." instance=ExtResource("2_bg3fx")]
+position = Vector2(0, -6)
 
 [node name="DialogReceiver" parent="." instance=ExtResource("4_rng4q")]
+position = Vector2(0, -6)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -6)
+polygon = PackedVector2Array(-5, 5, -2, 7, 2, 7, 5, 5)
