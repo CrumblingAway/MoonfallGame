@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6lq2caqw5pqg"]
+
+[ext_resource type="Texture2D" uid="uid://d0baonvpmrhna" path="res://resources/sprites/player_bar.png" id="1_gcfoy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvrjh"]
+size = Vector2(16, 6)
+
+[node name="player_bar" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 8
+mass = 0.5
+gravity_scale = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gcfoy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wvrjh")

@@ -1,42 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2ybak5bjnuvp"]
+[gd_scene load_steps=6 format=3 uid="uid://d2ybak5bjnuvp"]
 
 [ext_resource type="Script" path="res://scripts/tree_minigame.gd" id="1_x5f01"]
-[ext_resource type="Texture2D" uid="uid://d0baonvpmrhna" path="res://resources/sprites/player_bar.png" id="2_57hob"]
 [ext_resource type="Texture2D" uid="uid://c8oi0syqie0d2" path="res://resources/sprites/minigame_background.png" id="2_xukud"]
+[ext_resource type="PackedScene" uid="uid://c6lq2caqw5pqg" path="res://scenes/objects/player_bar.tscn" id="3_vhndr"]
+[ext_resource type="Texture2D" uid="uid://b43kl2wtouxen" path="res://resources/sprites/target_bar.png" id="4_u7lip"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy3xg"]
-size = Vector2(16, 4)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efwe2"]
+size = Vector2(160, 6)
 
-[node name="tree_minigame" type="Node2D" node_paths=PackedStringArray("_camera")]
+[node name="tree_minigame" type="Node2D" node_paths=PackedStringArray("_player_bar", "_target_bar")]
 script = ExtResource("1_x5f01")
-_camera = NodePath("Camera2D")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+_player_bar = NodePath("player_bar")
+_target_bar = NodePath("Area2D")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)
 texture = ExtResource("2_xukud")
 
-[node name="PlayerBar" type="Node2D" parent="."]
-position = Vector2(0, -72)
-scale = Vector2(10, 1)
+[node name="player_bar" parent="." instance=ExtResource("3_vhndr")]
+position = Vector2(0, -58)
 
-[node name="Area2D" type="Area2D" parent="PlayerBar"]
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBar/Area2D"]
-shape = SubResource("RectangleShape2D_uy3xg")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_efwe2")
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerBar"]
-texture = ExtResource("2_57hob")
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(10, 0.375)
+texture = ExtResource("4_u7lip")
 
-[node name="TargetBar" type="Node2D" parent="."]
-scale = Vector2(10, 1)
-
-[node name="Area2D" type="Area2D" parent="TargetBar"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetBar/Area2D"]
-shape = SubResource("RectangleShape2D_uy3xg")
-
-[node name="Sprite2D" type="Sprite2D" parent="TargetBar"]
-texture = ExtResource("2_57hob")
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
