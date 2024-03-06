@@ -2,6 +2,8 @@ class_name TreeMinigame extends Node
 
 signal end_minigame
 
+@export var _camera : Camera2D
+
 func _ready() -> void:
 	pass
 

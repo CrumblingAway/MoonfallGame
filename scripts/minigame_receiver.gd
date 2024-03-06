@@ -29,4 +29,7 @@ func start_minigame() -> void:
 		_current_minigame_sender.start_minigame()
 
 func is_minigame_running() -> bool:
-	return _current_minigame_sender.is_minigame_running() if _current_minigame_sender != null else false
+	for child in get_tree().root.get_children():
+		if child is TreeMinigame:
+			return true
+	return false
