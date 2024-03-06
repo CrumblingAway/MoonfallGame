@@ -1,4 +1,4 @@
-class_name TreeMinigame extends Node
+class_name TreeMinigame extends Node2D
 
 signal end_minigame
 

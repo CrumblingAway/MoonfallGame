@@ -11,8 +11,12 @@ func start_minigame() -> void:
 	
 	if _minigame == null:	
 		_minigame = preload("res://scenes/objects/tree_minigame.tscn").instantiate() as TreeMinigame
-		
+	
+	var viewport_size : Rect2 = get_viewport_rect()
+	var minigame_position = (viewport_size.position + viewport_size.end) / 2
+	print(minigame_position)
 	get_tree().root.add_child(_minigame)
+	_minigame.position = minigame_position
 	_minigame.end_minigame.connect(_end_minigame)
 
 #################### Signal methods. ####################

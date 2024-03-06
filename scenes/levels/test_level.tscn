@@ -8,9 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cmcx768nwm78m" path="res://scenes/objects/gate_controler.tscn" id="3_yc4sr"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+position = Vector2(160, 90)
 
 [node name="board" parent="." instance=ExtResource("1_0astc")]
 
