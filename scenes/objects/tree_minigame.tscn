@@ -29,11 +29,12 @@ collision_mask = 8
 shape = SubResource("RectangleShape2D_efwe2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-scale = Vector2(5.22079, 0.375)
+scale = Vector2(5.22079, 1.01504)
 texture = ExtResource("4_u7lip")
 
 [node name="player_bar" parent="." instance=ExtResource("3_vhndr")]
 position = Vector2(0, -58)
+gravity_scale = 0.1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_375b4")
