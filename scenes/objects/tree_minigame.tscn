@@ -11,6 +11,7 @@ size = Vector2(84, 6)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_375b4"]
 shader = ExtResource("1_kd7mw")
+shader_parameter/direction = null
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tstsy"]
 size = Vector2(84, 6)

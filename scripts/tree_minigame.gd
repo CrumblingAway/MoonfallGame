@@ -10,10 +10,18 @@ var _are_targets_overlapping : bool
 
 @export var _player_speed : float = 40.0
 
+var _directions = [
+	Vector2i(0, 1),
+	Vector2i(1, 0),
+	Vector2i(0, -1),
+	Vector2i(-1, 0)
+]
+
 func _ready() -> void:
 	_player_bar.velocity = Vector2(0.0, _player_speed)
 
 func _process(delta: float) -> void:
+	$ColorRect.material.set_shader_parameter("direction", _directions[int(Time.get_unix_time_from_system()) % 4])
 	_player_bar.move_and_slide()
 	if Input.is_action_just_pressed("action"):
 		# Flash target bar.
