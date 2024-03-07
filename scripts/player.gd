@@ -1,8 +1,10 @@
 class_name Player extends CharacterBody2D
 
-@export var board_movement : BoardMovement
-@export var dialog_receiver : DialogReceiver
-@export var minigame_receiver : MinigameReceiver
+@onready var board_movement : BoardMovement = $BoardMovement
+@onready var dialog_receiver : DialogReceiver = $DialogReceiver
+@onready var minigame_receiver : MinigameReceiver = $MinigameReceiver
+@onready var gate_controler_receiver : GateControlerReceiver = $GateControlerReceiver
+@onready var key_holder : KeyHolder = $KeyHolder
 
 @export var _speed : float = 50.0
 
@@ -28,7 +30,9 @@ func _process_input(delta: float) -> void:
 		if dialog_receiver.has_registered_dialog():
 			dialog_receiver.print_dialog_text()
 		elif minigame_receiver.has_registered_minigame():
-			minigame_receiver.start_minigame()
+			minigame_receiver.start_minigame(key_holder)
+		elif gate_controler_receiver.has_registered_gate_controler():
+			gate_controler_receiver.activate(key_holder.get_num_of_keys())
 	
 	if _can_move:
 		var current_velocity : Vector2 = Vector2.ZERO

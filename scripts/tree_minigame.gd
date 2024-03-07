@@ -15,11 +15,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("action"):
 		if _are_targets_overlapping:
 			_score += 1
-			print("Score: " + str(_score))
+			print("One key gained.")
 	
 	if _player_bar.position.y > 300.0:
-		print("Score: " + str(_score))
-		end_minigame.emit()
+		end_minigame.emit(_score)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	_are_targets_overlapping = true
