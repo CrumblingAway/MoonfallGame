@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2ybak5bjnuvp"]
+[gd_scene load_steps=9 format=3 uid="uid://d2ybak5bjnuvp"]
 
 [ext_resource type="Shader" path="res://scenes/objects/tree_minigame.gdshader" id="1_kd7mw"]
 [ext_resource type="Script" path="res://scripts/tree_minigame.gd" id="1_x5f01"]
@@ -11,6 +11,9 @@ size = Vector2(84, 6)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_375b4"]
 shader = ExtResource("1_kd7mw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tstsy"]
+size = Vector2(84, 6)
 
 [node name="tree_minigame" type="Node2D" node_paths=PackedStringArray("_player_bar", "_target_bar")]
 script = ExtResource("1_x5f01")
@@ -34,7 +37,6 @@ texture = ExtResource("4_u7lip")
 
 [node name="player_bar" parent="." instance=ExtResource("3_vhndr")]
 position = Vector2(0, -58)
-gravity_scale = 0.1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_375b4")
@@ -44,5 +46,14 @@ offset_right = 42.0
 offset_bottom = 69.0
 metadata/_edit_use_anchors_ = true
 
+[node name="KeyDespawnArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyDespawnArea"]
+position = Vector2(0, 66)
+shape = SubResource("RectangleShape2D_tstsy")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="KeyDespawnArea" to="." method="_on_key_despawn_area_body_entered"]

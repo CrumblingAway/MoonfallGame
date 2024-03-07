@@ -5,11 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvrjh"]
 size = Vector2(16, 6)
 
-[node name="player_bar" type="RigidBody2D"]
+[node name="player_bar" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 8
-mass = 0.5
-gravity_scale = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gcfoy")
