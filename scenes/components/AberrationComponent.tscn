@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw4f526uocjdr"]
+
+[ext_resource type="Script" path="res://scripts/aberration_component.gd" id="1_ey1wy"]
+
+[node name="AberrationComponent" type="Node2D"]
+script = ExtResource("1_ey1wy")

@@ -47,3 +47,6 @@ func _on_key_despawn_area_body_entered(body: Node2D) -> void:
 		pass
 	
 	end_minigame.emit(_score)
+
+func set_aberration_level(aberration_level: int) -> void:
+	_aberration_level = aberration_level

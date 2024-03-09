@@ -5,7 +5,10 @@ var _key_holder : KeyHolder
 
 #################### Public methods. ####################
 
-func start_minigame(key_holder: KeyHolder) -> void:
+func start_minigame(
+	key_holder: KeyHolder,
+	aberration_component: AberrationComponent
+) -> void:
 	for child in get_tree().root.get_children():
 		if child is TreeMinigame:
 			return
@@ -17,6 +20,8 @@ func start_minigame(key_holder: KeyHolder) -> void:
 	get_tree().root.add_child(_minigame)
 	_minigame.global_position = minigame_position
 	_minigame.end_minigame.connect(_end_minigame)
+	_minigame.set_aberration_level(aberration_component.get_aberration_level())
+	
 	_key_holder = key_holder
 
 #################### Signal methods. ####################

@@ -5,6 +5,7 @@ class_name Player extends CharacterBody2D
 @onready var minigame_receiver : MinigameReceiver = $MinigameReceiver
 @onready var gate_controler_receiver : GateControlerReceiver = $GateControlerReceiver
 @onready var key_holder : KeyHolder = $KeyHolder
+@export var aberration_component : AberrationComponent
 
 @export var _speed : float = 50.0
 
@@ -12,6 +13,12 @@ class_name Player extends CharacterBody2D
 
 func _ready() -> void:
 	_can_move = true
+	
+	var _rng = RandomNumberGenerator.new()
+	_rng.seed = Time.get_unix_time_from_system()
+	
+	aberration_component = $AberrationComponent
+	aberration_component.increase_aberration_level_by(_rng.randi() % AberrationComponent.MAX_ABERRATION_LEVEL)
 
 func _process(delta: float) -> void:
 	_process_input(delta)
@@ -30,7 +37,7 @@ func _process_input(delta: float) -> void:
 		if dialog_receiver.has_registered_dialog():
 			dialog_receiver.print_dialog_text()
 		elif minigame_receiver.has_registered_minigame():
-			minigame_receiver.start_minigame(key_holder)
+			minigame_receiver.start_minigame(key_holder, aberration_component)
 		elif gate_controler_receiver.has_registered_gate_controler():
 			gate_controler_receiver.activate(key_holder.get_num_of_keys())
 	

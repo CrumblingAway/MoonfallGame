@@ -29,3 +29,5 @@ _gate = NodePath("../gate")
 position = Vector2(0, -40)
 
 [node name="player" parent="Temp" instance=ExtResource("1_6rh2j")]
+_speed = 50.0
+_can_move = false

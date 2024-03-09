@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2ecjs5nrkkbv"]
+[gd_scene load_steps=9 format=3 uid="uid://c2ecjs5nrkkbv"]
 
 [ext_resource type="Texture2D" uid="uid://k0lvqitsd6vj" path="res://resources/sprites/player.png" id="1_507aj"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_h8wqq"]
@@ -7,11 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bbc46ofx4e56b" path="res://scenes/components/MinigameReceiver.tscn" id="5_gnjys"]
 [ext_resource type="PackedScene" uid="uid://cncr6mdgr06ls" path="res://scenes/components/GateControlerReceiver.tscn" id="6_ip3fa"]
 [ext_resource type="PackedScene" uid="uid://dygwfrwu10f3r" path="res://scenes/components/KeyHolder.tscn" id="7_rlrr8"]
+[ext_resource type="PackedScene" uid="uid://cw4f526uocjdr" path="res://scenes/components/AberrationComponent.tscn" id="8_v6unu"]
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_h8wqq")
-_speed = null
-_can_move = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -6)
@@ -28,6 +27,8 @@ position = Vector2(0, -6)
 [node name="GateControlerReceiver" parent="." instance=ExtResource("6_ip3fa")]
 
 [node name="KeyHolder" parent="." instance=ExtResource("7_rlrr8")]
+
+[node name="AberrationComponent" parent="." instance=ExtResource("8_v6unu")]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -6)
