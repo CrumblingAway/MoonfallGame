@@ -20,4 +20,4 @@ func _attach_win_label() -> void:
 	var win_label : Label = Label.new()
 	win_label.text = "You've won!"
 	add_child(win_label)
-	win_label.position = get_viewport().size / 2
+	win_label.position = get_viewport().get_visible_rect().size / 2 - win_label.size / 2
