@@ -14,7 +14,7 @@ func _process(delta):
 func has_registered_gate_controler() -> bool:
 	return _gate_controlers.size() > 0
 
-func activate(num_of_keys: int) -> void:
+func activate(key_holder: KeyHolder) -> void:
 	var closest_gate_controler : GateControler = null
 	for gate_controler in _gate_controlers:
 		if closest_gate_controler == null:
@@ -26,7 +26,7 @@ func activate(num_of_keys: int) -> void:
 			closest_gate_controler = gate_controler
 	
 	if closest_gate_controler != null:
-		closest_gate_controler.activate(num_of_keys)
+		closest_gate_controler.activate(key_holder)
 
 func register_gate_controler(gate_controler: GateControler) -> void:
 	_gate_controlers[gate_controler] = null

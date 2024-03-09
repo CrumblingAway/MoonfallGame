@@ -22,5 +22,5 @@ func set_text(text: String) -> void:
 func set_timer(timer: float) -> void:
 	_timer = timer
 
-func size() -> Vector2:
+func size() -> Vector2i:
 	return _label.size

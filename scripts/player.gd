@@ -33,7 +33,7 @@ func _process_input(delta: float) -> void:
 		elif minigame_receiver.has_registered_minigame():
 			minigame_receiver.start_minigame(key_holder, aberration_component)
 		elif gate_controler_receiver.has_registered_gate_controler():
-			gate_controler_receiver.activate(key_holder.get_num_of_keys())
+			gate_controler_receiver.activate(key_holder)
 	
 	if _can_move:
 		var current_velocity : Vector2 = Vector2.ZERO
