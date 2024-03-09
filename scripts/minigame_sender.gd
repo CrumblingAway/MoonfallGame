@@ -17,10 +17,10 @@ func start_minigame(
 		_minigame = preload("res://scenes/objects/tree_minigame.tscn").instantiate() as TreeMinigame
 	
 	var minigame_position = get_viewport().get_camera_2d().global_position
+	_minigame.set_aberration_level(aberration_component.get_aberration_level())
 	get_tree().root.add_child(_minigame)
 	_minigame.global_position = minigame_position
 	_minigame.end_minigame.connect(_end_minigame)
-	_minigame.set_aberration_level(aberration_component.get_aberration_level())
 	
 	_key_holder = key_holder
 

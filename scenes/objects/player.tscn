@@ -35,3 +35,5 @@ position = Vector2(0, -6)
 polygon = PackedVector2Array(-5, 5, -2, 7, 2, 7, 5, 5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="num_of_keys_changed" from="KeyHolder" to="AberrationComponent" method="_on_key_holder_num_of_keys_changed"]
