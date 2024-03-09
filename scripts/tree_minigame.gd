@@ -9,7 +9,7 @@ var _score : int = 0
 var _are_targets_overlapping : bool
 
 @export var _player_speed : float = 40.0
-var _aberration_level : int = 3
+var _aberration_level : int = 0
 
 var _directions = [
 	Vector2i(0, 1),
@@ -19,20 +19,22 @@ var _directions = [
 ]
 
 func _ready() -> void:
-	_player_bar.velocity = Vector2(0.0, _player_speed)
+	_player_bar.velocity = Vector2(0.0, _player_speed) * (_aberration_level + 1)
 
 func _process(delta: float) -> void:
 	$ColorRect.material.set_shader_parameter("direction", _directions[
 		int((Time.get_unix_time_from_system() - int(Time.get_unix_time_from_system())) * (pow(10, _aberration_level))) % 4
 	])
+	
 	_player_bar.move_and_slide()
 	if Input.is_action_just_pressed("action"):
-		# Flash target bar.
-		
-		# Check _are_targets_overlapping.
+		_player_bar.velocity = Vector2.ZERO
 		if _are_targets_overlapping:
 			_score += 1
-			print("One key gained")
+			_player_bar.get_node("AnimatedSprite2D").play("success")
+		else:
+			_player_bar.get_node("AnimatedSprite2D").play("failure")
+		
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	_are_targets_overlapping = true
@@ -43,10 +45,11 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_key_despawn_area_body_entered(body: Node2D) -> void:
 	_player_bar.velocity = Vector2.ZERO
 	
-	if _score > 0:
-		pass
-	
-	end_minigame.emit(_score)
+	_player_bar.get_node("AnimatedSprite2D").play("failure")
 
 func set_aberration_level(aberration_level: int) -> void:
 	_aberration_level = aberration_level
+
+func _on_animated_sprite_2d_animation_finished():
+	_player_bar.queue_free()
+	end_minigame.emit(_score)

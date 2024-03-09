@@ -5,7 +5,7 @@ class_name Player extends CharacterBody2D
 @onready var minigame_receiver : MinigameReceiver = $MinigameReceiver
 @onready var gate_controler_receiver : GateControlerReceiver = $GateControlerReceiver
 @onready var key_holder : KeyHolder = $KeyHolder
-@export var aberration_component : AberrationComponent
+@onready var aberration_component : AberrationComponent = $AberrationComponent
 
 @export var _speed : float = 50.0
 
@@ -13,12 +13,6 @@ class_name Player extends CharacterBody2D
 
 func _ready() -> void:
 	_can_move = true
-	
-	var _rng = RandomNumberGenerator.new()
-	_rng.seed = Time.get_unix_time_from_system()
-	
-	aberration_component = $AberrationComponent
-	aberration_component.increase_aberration_level_by(_rng.randi() % AberrationComponent.MAX_ABERRATION_LEVEL)
 
 func _process(delta: float) -> void:
 	_process_input(delta)
