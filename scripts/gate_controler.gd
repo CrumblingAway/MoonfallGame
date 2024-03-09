@@ -11,9 +11,12 @@ func _process(delta: float) -> void:
 func activate(num_of_keys: int) -> void:
 	if num_of_keys >= _gate.get_num_of_keys_required():
 		_gate.open()
-		print("The gate is open!")
 	else:
-		print(str(num_of_keys) + " keys provided, " + str(_gate.get_num_of_keys_required()) + " required!")
+		get_tree().root.get_node("Node2D/UILayer").display_label_at_position(
+			global_position,
+			str(num_of_keys) + " keys provided, " + str(_gate.get_num_of_keys_required()) + " required!",
+			2.0
+		)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	for child in body.get_children():

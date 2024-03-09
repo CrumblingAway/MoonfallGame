@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://du7hgtxav3477"]
+
+[ext_resource type="Script" path="res://scripts/self_destructing_label.gd" id="1_5lj2n"]
+
+[node name="SelfDestructingLabel" type="Node2D"]
+script = ExtResource("1_5lj2n")

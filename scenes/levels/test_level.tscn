@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dl1p08skh3nx" path="res://scenes/objects/tree.tscn" id="3_ya4ro"]
 [ext_resource type="PackedScene" uid="uid://cmcx768nwm78m" path="res://scenes/objects/gate_controler.tscn" id="3_yc4sr"]
 [ext_resource type="Texture2D" uid="uid://d0baonvpmrhna" path="res://resources/sprites/player_bar.png" id="7_n4716"]
-[ext_resource type="Script" path="res://scripts/ui_script.gd" id="7_pm5v6"]
+[ext_resource type="Script" path="res://scripts/ui_layer.gd" id="7_t4m60"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(160, 90)
@@ -32,25 +32,25 @@ position = Vector2(0, -40)
 
 [node name="player" parent="Temp" instance=ExtResource("1_6rh2j")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("_player")]
-script = ExtResource("7_pm5v6")
+[node name="UILayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("_player")]
+script = ExtResource("7_t4m60")
 _player = NodePath("../Temp/player")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="UILayer"]
 position = Vector2(9, 9)
 texture = ExtResource("7_n4716")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="UILayer"]
 offset_left = 23.0
 offset_top = -2.0
 offset_right = 46.0
 offset_bottom = 24.0
 text = "1"
 
-[connection signal="body_entered" from="Temp/gate/WinArea" to="CanvasLayer" method="_on_win_area_body_entered"]
-[connection signal="num_of_keys_changed" from="Temp/player/KeyHolder" to="CanvasLayer" method="_on_key_holder_num_of_keys_changed"]
+[connection signal="body_entered" from="Temp/gate/WinArea" to="UILayer" method="_on_win_area_body_entered"]
+[connection signal="num_of_keys_changed" from="Temp/player/KeyHolder" to="UILayer" method="_on_key_holder_num_of_keys_changed"]
 
 [editable path="Temp/gate"]
 [editable path="Temp/player"]
