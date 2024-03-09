@@ -49,6 +49,8 @@ offset_right = 46.0
 offset_bottom = 24.0
 text = "1"
 
+[connection signal="body_entered" from="Temp/gate/WinArea" to="CanvasLayer" method="_on_win_area_body_entered"]
 [connection signal="num_of_keys_changed" from="Temp/player/KeyHolder" to="CanvasLayer" method="_on_key_holder_num_of_keys_changed"]
 
+[editable path="Temp/gate"]
 [editable path="Temp/player"]

@@ -96,11 +96,9 @@ shape = SubResource("RectangleShape2D_rchvd")
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_dtv4u")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="WinArea" type="Area2D" parent="."]
 position = Vector2(0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
 position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_kb0h6")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
