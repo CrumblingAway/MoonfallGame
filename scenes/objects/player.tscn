@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cw4f526uocjdr" path="res://scenes/components/AberrationComponent.tscn" id="8_v6unu"]
 
 [node name="player" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_h8wqq")
+_speed = 150.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -6)
