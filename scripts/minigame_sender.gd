@@ -39,4 +39,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _end_minigame(num_of_keys_acquired: int) -> void:
 	_minigame.queue_free()
 	_key_holder.increase_num_of_keys_by(num_of_keys_acquired)
-	print(_key_holder.get_num_of_keys())
+	
+	if num_of_keys_acquired != 0:
+		$"..".queue_free()
