@@ -22,15 +22,20 @@ func _process(delta: float) -> void:
 func increase_speed(increase_delta: float) -> void:
 	_speed += increase_delta
 
+func freeze() -> void:
+	_can_move = false
+
+func unfreeze() -> void:
+	_can_move = true
+
 #################### Private methods. ####################
 
 func _process_input(delta: float) -> void:
-	_can_move = not minigame_receiver.is_minigame_running()
-	
 	if Input.is_action_just_pressed("action"):
 		if dialog_receiver.has_registered_dialog():
 			dialog_receiver.print_dialog_text()
 		elif minigame_receiver.has_registered_minigame():
+			_can_move = false
 			minigame_receiver.start_minigame(key_holder, aberration_component)
 		elif gate_controler_receiver.has_registered_gate_controler():
 			gate_controler_receiver.activate(key_holder)
