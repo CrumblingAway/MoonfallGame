@@ -35,7 +35,6 @@ func _process_input(delta: float) -> void:
 		if dialog_receiver.has_registered_dialog():
 			dialog_receiver.print_dialog_text()
 		elif minigame_receiver.has_registered_minigame():
-			_can_move = false
 			minigame_receiver.start_minigame(key_holder, aberration_component)
 		elif gate_controler_receiver.has_registered_gate_controler():
 			gate_controler_receiver.activate(key_holder)

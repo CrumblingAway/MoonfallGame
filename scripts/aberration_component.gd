@@ -14,4 +14,4 @@ func decrease_aberration_level_by(decrease: float) -> void:
 	_aberration_level = max(_aberration_level + decrease, 0.0)
 
 func _on_key_holder_num_of_keys_changed(new_num_of_keys: float):
-	_aberration_level = new_num_of_keys
+	_aberration_level = max(new_num_of_keys, _aberration_level)
