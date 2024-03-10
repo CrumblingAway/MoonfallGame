@@ -17,32 +17,69 @@ position = Vector2(160, 90)
 [node name="Temp" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="enemy2" parent="Temp" instance=ExtResource("2_scgxy")]
+position = Vector2(-261, 220)
+
+[node name="gate3" parent="Temp" instance=ExtResource("2_gqwwk")]
+position = Vector2(-228, 195)
+
+[node name="gate_controler3" parent="Temp" node_paths=PackedStringArray("_gate") instance=ExtResource("3_yc4sr")]
+position = Vector2(-260, 196)
+_gate = NodePath("../gate3")
+
 [node name="enemy" parent="Temp" instance=ExtResource("2_scgxy")]
 position = Vector2(-333, 6)
 
 [node name="tree" parent="Temp" instance=ExtResource("3_ya4ro")]
-position = Vector2(-7, 52)
-
-[node name="tree6" parent="Temp" instance=ExtResource("3_ya4ro")]
-position = Vector2(-284, 30)
-
-[node name="tree7" parent="Temp" instance=ExtResource("3_ya4ro")]
-position = Vector2(-322, 28)
-
-[node name="tree8" parent="Temp" instance=ExtResource("3_ya4ro")]
-position = Vector2(-303, 36)
-
-[node name="tree4" parent="Temp" instance=ExtResource("3_ya4ro")]
-position = Vector2(-37, 45)
-
-[node name="tree5" parent="Temp" instance=ExtResource("3_ya4ro")]
-position = Vector2(-26, 49)
+position = Vector2(-395, -438)
 
 [node name="tree2" parent="Temp" instance=ExtResource("3_ya4ro")]
-position = Vector2(-16, 51)
+position = Vector2(232, -168)
 
 [node name="tree3" parent="Temp" instance=ExtResource("3_ya4ro")]
-position = Vector2(-48, 42)
+position = Vector2(-227, -326)
+
+[node name="tree4" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(323, -305)
+
+[node name="tree5" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(-4, -194)
+
+[node name="tree6" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(526, -237)
+
+[node name="tree7" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(-395, -60)
+
+[node name="tree8" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(-79, 40)
+
+[node name="tree9" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(-401, 61)
+
+[node name="tree10" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(524, 11)
+
+[node name="tree11" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(-5, 184)
+
+[node name="tree12" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(144, 109)
+
+[node name="tree13" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(303, 234)
+
+[node name="tree14" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(0, 358)
+
+[node name="tree15" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(-225, 392)
+
+[node name="tree16" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(532, 344)
+
+[node name="tree17" parent="Temp" instance=ExtResource("3_ya4ro")]
+position = Vector2(304, 453)
 
 [node name="gate2" parent="Temp" instance=ExtResource("2_gqwwk")]
 position = Vector2(-300, -19)
@@ -59,7 +96,16 @@ _gate = NodePath("../gate")
 position = Vector2(0, -40)
 
 [node name="player" parent="Temp" instance=ExtResource("1_6rh2j")]
-position = Vector2(-22, 23)
+
+[node name="enemy3" parent="Temp" instance=ExtResource("2_scgxy")]
+position = Vector2(152, 264)
+
+[node name="gate4" parent="Temp" instance=ExtResource("2_gqwwk")]
+position = Vector2(185, 239)
+
+[node name="gate_controler4" parent="Temp" node_paths=PackedStringArray("_gate") instance=ExtResource("3_yc4sr")]
+position = Vector2(153, 240)
+_gate = NodePath("../gate4")
 
 [node name="UILayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("_player")]
 script = ExtResource("7_t4m60")
