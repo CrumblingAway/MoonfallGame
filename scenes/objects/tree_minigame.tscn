@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2ybak5bjnuvp"]
+[gd_scene load_steps=10 format=3 uid="uid://d2ybak5bjnuvp"]
 
 [ext_resource type="Shader" path="res://scenes/objects/tree_minigame.gdshader" id="1_kd7mw"]
 [ext_resource type="Script" path="res://scripts/tree_minigame.gd" id="1_x5f01"]
@@ -16,13 +16,17 @@ shader_parameter/direction = null
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tstsy"]
 size = Vector2(84, 6)
 
+[sub_resource type="LabelSettings" id="LabelSettings_0e1w8"]
+font_size = 8
+
 [node name="tree_minigame" type="Node2D" node_paths=PackedStringArray("_player_bar", "_target_bar")]
 script = ExtResource("1_x5f01")
 _player_bar = NodePath("player_bar")
 _target_bar = NodePath("Area2D")
 
 [node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(5.25, 8.625)
+position = Vector2(0, -6)
+scale = Vector2(5.25, 9.375)
 texture = ExtResource("2_xukud")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -42,9 +46,10 @@ position = Vector2(0, -58)
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_375b4")
 offset_left = -42.0
-offset_top = -69.0
+offset_top = -81.0
 offset_right = 42.0
-offset_bottom = 69.0
+offset_bottom = 57.0
+scale = Vector2(1.00377, 1.0875)
 metadata/_edit_use_anchors_ = true
 
 [node name="KeyDespawnArea" type="Area2D" parent="."]
@@ -54,6 +59,15 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KeyDespawnArea"]
 position = Vector2(0, 66)
 shape = SubResource("RectangleShape2D_tstsy")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -42.0
+offset_top = -81.0
+offset_right = 42.0
+offset_bottom = -58.0
+text = "Catch the key!"
+label_settings = SubResource("LabelSettings_0e1w8")
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
