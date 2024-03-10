@@ -22,12 +22,12 @@ var _current_direction_index = 0
 
 func _ready() -> void:
 	_player_bar.velocity = Vector2(0.0, _player_speed) * (_aberration_level + 1)
-	_direction_timer = AberrationComponent.MAX_ABERRATION_LEVEL - _aberration_level
+	_direction_timer = 1.0 / (_aberration_level + 1.0)
 
 func _process(delta: float) -> void:
 	_direction_timer -= delta
 	if _direction_timer <= 0:
-		_direction_timer = AberrationComponent.MAX_ABERRATION_LEVEL - _aberration_level
+		_direction_timer = 1.0 / (_aberration_level + 1.0)
 		_current_direction_index = (_current_direction_index + 1) % 4
 	
 	$ColorRect.material.set_shader_parameter("direction", _directions[_current_direction_index])
